@@ -1,7 +1,7 @@
 // Framer's exported runtime restores the original Framer routes (/about,
 // /projects, ...). GitHub Pages serves this site as static HTML, so follow
 // the local .html links exactly as written instead.
-document.addEventListener('click', (event) => {
+window.addEventListener('click', (event) => {
   if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
 
   const anchor = event.target.closest('a[href]');
