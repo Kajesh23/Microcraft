@@ -23,7 +23,7 @@ function staticUrl(url) {
   return url;
 }
 
-window.addEventListener('click', (event) => {
+function navigateStatic(event) {
   if (event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
 
   const anchor = event.target.closest('a[href]');
@@ -38,4 +38,7 @@ window.addEventListener('click', (event) => {
   event.preventDefault();
   event.stopImmediatePropagation();
   window.location.assign(url.href);
-}, true);
+}
+
+window.addEventListener('pointerdown', navigateStatic, true);
+window.addEventListener('click', navigateStatic, true);
