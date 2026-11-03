@@ -9,6 +9,23 @@ const staticProjectPages = new Set([
   'uart-in-fpga'
 ]);
 
+function repairStaticImages() {
+  const avatar = '/Microcraft/assets/images/mCJXHDn1n7Tg6y2ACtnpBhUgXY-c38c31.jpg';
+  document.querySelectorAll('img[alt="Portfolio Creator Avatar"]').forEach((image) => {
+    image.src = avatar;
+    image.srcset = `${avatar} 2816w`;
+  });
+
+  const artyfs = '/Microcraft/assets/images/EqpMr8ZNI8ueVqUub4NvrLJabPE-dbceb4.jpg';
+  document.querySelectorAll('img[src*="EqpMr8ZNI8ueVqUub4NvrLJabPE"]').forEach((image) => {
+    image.src = artyfs;
+    image.srcset = `${artyfs} 512w`;
+  });
+}
+
+document.addEventListener('DOMContentLoaded', repairStaticImages);
+new MutationObserver(repairStaticImages).observe(document.documentElement, { childList: true, subtree: true });
+
 function staticUrl(url) {
   const currentPath = window.location.pathname;
   const siteRoot = currentPath.match(/^\/[^/]+(?=\/)/)?.[0] ?? '';
