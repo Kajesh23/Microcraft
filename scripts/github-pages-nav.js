@@ -11,5 +11,6 @@ document.addEventListener('click', (event) => {
   if (url.origin !== window.location.origin) return;
 
   event.preventDefault();
+  event.stopPropagation();
   window.location.assign(url.href);
 }, true);
