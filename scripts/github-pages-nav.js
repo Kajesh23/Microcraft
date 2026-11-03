@@ -9,6 +9,22 @@ const staticProjectPages = new Set([
   'uart-in-fpga'
 ]);
 
+const staticImageStyle = document.createElement('style');
+staticImageStyle.textContent = `
+  .framer-11hbsib,
+  .framer-11hbsib > div,
+  img[alt="Portfolio Creator Avatar"],
+  img[src*="EqpMr8ZNI8ueVqUub4NvrLJabPE"] {
+    visibility: visible !important;
+    opacity: 1 !important;
+  }
+  img[alt="Portfolio Creator Avatar"],
+  img[src*="EqpMr8ZNI8ueVqUub4NvrLJabPE"] {
+    display: block !important;
+  }
+`;
+document.head.appendChild(staticImageStyle);
+
 function repairStaticImages() {
   const avatar = '/Microcraft/assets/images/mCJXHDn1n7Tg6y2ACtnpBhUgXY-c38c31.jpg';
   document.querySelectorAll('img[alt="Portfolio Creator Avatar"]').forEach((image) => {
